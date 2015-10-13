@@ -1,0 +1,33 @@
+{
+  "name": "ideavalidator_frontend",
+  "version": "0.0.1",
+  "description": "The web app part of the idea validator. The backend is another project.",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "",
+    "start": "PORT=4837 node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrooksPatton/ideavalidator_frontend.git"
+  },
+  "keywords": [
+    "idea validator",
+    "angular web app"
+  ],
+  "author": {
+    "name": "Brooks Patton",
+    "email": "brooks@brookzerker.com",
+    "url": "https://www.brookzerker.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BrooksPatton/ideavalidator_frontend/issues",
+    "email": "ideavalidator.frontend@brookzerker.com"
+  },
+  "homepage": "https://github.com/BrooksPatton/ideavalidator_frontend",
+  "engines": {
+    "node": "v0.12.7"
+  },
+  "private": true
+}
