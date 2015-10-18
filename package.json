@@ -2,10 +2,10 @@
   "name": "ideavalidator_frontend",
   "version": "0.0.1",
   "description": "The web app part of the idea validator. The backend is another project.",
-  "main": "server/app.js",
+  "main": "prod/server/app.js",
   "scripts": {
     "test": "coffee --compile --output prod/ dev/;NODE_ENV=test MONGO_URL=mongodb://localhost/ideavalidatortest mocha --compilers coffee:coffee-script/register --reporter dot test/server",
-    "start": "PORT=4837 node server/app.js"
+    "start": "coffee --compile --output prod/ dev/; PORT=4837 node prod/server/app.js"
   },
   "repository": {
     "type": "git",
@@ -31,9 +31,11 @@
   },
   "private": true,
   "devDependencies": {
-    "chai": "^3.3.0"
+    "chai": "^3.3.0",
+    "gulp": "^3.9.0"
   },
   "dependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "^1.10.0",
+    "express": "^4.13.3"
   }
 }
