@@ -4,6 +4,8 @@ express = require 'express'
 
 app = express()
 
+app.use '/js', express.static __dirname + '/../client/js'
+
 app.get '/*', (req, res, next) ->
 	options =
 		root: __dirname + '/../client/html/'
