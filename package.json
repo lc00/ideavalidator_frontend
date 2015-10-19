@@ -4,8 +4,8 @@
   "description": "The web app part of the idea validator. The backend is another project.",
   "main": "prod/server/app.js",
   "scripts": {
-    "test": "coffee --compile --output prod/ dev/;NODE_ENV=test MONGO_URL=mongodb://localhost/ideavalidatortest mocha --compilers coffee:coffee-script/register --reporter dot test/server",
-    "start": "coffee --compile --output prod/ dev/; gulp --require coffee-script/register; PORT=4837 node prod/server/app.js"
+    "test": "gulp --require coffee-script/register;NODE_ENV=test MONGO_URL=mongodb://localhost/ideavalidatortest mocha --compilers coffee:coffee-script/register --reporter dot test/server",
+    "start": "gulp --require coffee-script/register; PORT=4837 node prod/server/app.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
   "dependencies": {
     "coffee-script": "^1.10.0",
     "express": "^4.13.3",
+    "gulp-coffee": "^2.3.1",
     "gulp-inject": "^3.0.0",
     "run-sequence": "^1.1.4"
   }

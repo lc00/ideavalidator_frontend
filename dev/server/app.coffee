@@ -4,6 +4,7 @@ express = require 'express'
 
 app = express()
 
+app.use '/lib', express.static __dirname + '/../bower_components'
 app.use '/js', express.static __dirname + '/../client/js'
 
 app.get '/*', (req, res, next) ->

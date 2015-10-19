@@ -2,6 +2,7 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 runSequence = require 'run-sequence'
 inject = require 'gulp-inject'
+coffee = require 'gulp-coffee'
 
 gulp.task 'jade', ->
 	gulp.src './dev/client/html/**/*.jade'
@@ -15,5 +16,10 @@ gulp.task 'injectJsDev', ->
 	target.pipe inject sources, ignorePath: '/prod/client'
 		.pipe gulp.dest './prod/client/html'
 
+gulp.task 'coffee', ->
+	gulp.src './dev/**/*.coffee'
+		.pipe coffee(bare: true).on 'error', console.log
+		.pipe gulp.dest './prod/'
+
 gulp.task 'default', ->
-	runSequence 'jade', 'injectJsDev'
+	runSequence 'coffee', 'jade', 'injectJsDev'
