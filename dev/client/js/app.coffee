@@ -1,3 +1,11 @@
-boo = 5
+ideaValidator = angular.module 'ideaValidator', ['ngRoute']
 
-alert boo
+ideaValidator.config ($routeProvider, $locationProvider) ->
+	$routeProvider
+		.when '/landing', 
+			templateUrl: '/partials/landing.html'
+		.otherwise redirectTo: '/landing'
+
+	$locationProvider.html5Mode 
+		enabled: true,
+		requireBase: false
