@@ -4,6 +4,8 @@ runSequence = require 'run-sequence'
 inject = require 'gulp-inject'
 coffee = require 'gulp-coffee'
 series = require 'stream-series'
+watch = require 'gulp-watch'
+server = require 'gulp-express'
 
 bowerLibraries = [
 	'./bower_components/angular/angular.js', 
@@ -35,5 +37,18 @@ gulp.task 'coffee', ->
 		.pipe coffee(bare: true).on 'error', console.log
 		.pipe gulp.dest './prod/'
 
+gulp.task 'server', ->
+	server.run ['prod/server/app.js']
+
+	watch './dev/client/**/*.jade', ->
+		runSequence 'coffee', 'jade', 'inject'
+		server.run('prod/server/app.js')
+	watch './dev/client/**/*.coffee', ->
+		runSequence 'coffee', 'jade', 'inject'
+		server.run('prod/server/app.js')
+
 gulp.task 'default', ->
 	runSequence 'coffee', 'jade', 'inject'
+
+gulp.task 'dev', ->
+	runSequence 'server'
